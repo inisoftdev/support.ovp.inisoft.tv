@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang='en'>
+	<head>
+		<meta charset='utf-8'>
+		<script type='text/javascript' src='https://inisoft.tv/shaka-player.compiled.js'></script>
+		<script type='text/javascript' src='https://inisoft.tv/drm_player.js'></script>
+	</head>
+	<body style="margin: 0px; border: 0px; overflow: hidden">
+		<div id='player'></div>
+		<script type='text/javascript'>
+			var player = drm_player({
+				container : 'player',
+				width : 960,
+				height : 540,
+				content: {
+					contentID : '컨텐츠id',
+					title: '제목',
+					urls: {
+						streaming: {
+							dash: 'dash 파일 주소',
+							hls: 'hls 파일 주소'
+						},
+						download: '앱 불러오기 URI'
+					},
+					poster: {
+						url: 'jpg 파일 주소'
+					},
+					thumbnail: {
+						urls: ['썸네일1 url','썸네일2 url'],
+						period: 1
+					}
+				},
+				license: {
+					urls: {
+						playready: null,
+						widevine: null,
+						fairplay: {
+							url: null,
+							fairplayCertUrl: null
+						}
+					},
+					licenseToken: null
+				},
+				bookmark: {
+					url: null
+				},
+				device: {
+					url: null
+				},
+				player: {
+					callback: {
+						period: null,
+						url: null,
+						block: {
+							count: 100,
+							enable: false
+						}
+					},
+					lms: {
+						period: null,
+						url: null,
+						block: {
+							count: 100,
+							enable: false
+						}
+					},
+					policy: {
+						isAutoPlay: false,
+						enableResumePopup: true
+					},
+					controls: {
+						enableMiniMode: false,
+						enableSectionRepetition: true,
+						enablePlayRate: true
+					},
+					startAt: null,
+					sectionRepetition: {
+						startTime: null,
+						endTime: null
+					}
+				},
+				user: {
+					userID: "유저ID"
+				},
+				service: {
+					serviceID: "서비스ID"
+				},
+				customData: {
+				}
+			});
+		</script>
+	</body>
+</html>
